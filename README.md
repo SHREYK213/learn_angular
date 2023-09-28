@@ -1,6 +1,6 @@
-# Table
+# Learn_Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
+This is just a simple component made with angular cli
 
 ## Development server
 
