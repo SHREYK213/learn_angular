@@ -1,0 +1,22 @@
+<p>user-details works!</p>
+<h2>User Details</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Date of Birth</th>
+      <th>Phone</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.dob | date }}</td>
+      <td>{{ user.phone }}</td>
+      <td>{{ user.gender }}</td>
+    </tr>
+  </tbody>
+</table>
