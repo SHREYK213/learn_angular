@@ -12,6 +12,7 @@ import { ValidatorsService } from 'src/app/validators.service';
 export class UserFormComponent implements OnInit {
   myForm: FormGroup;
   userId: number = 0;
+  maxDate: Date;
 
   constructor(
     private fb: FormBuilder,
@@ -22,39 +23,21 @@ export class UserFormComponent implements OnInit {
   ngOnInit() {
     this.myForm = this.fb.group({
       id: [this.userId],
-      name: [
-        '',
-        [
-          Validators.required,
-          ValidatorsService.nameValidator(), // Use the custom name validator
-        ],
-      ],
-      email: [
-        '',
-        [
-          Validators.required,
-          ValidatorsService.emailValidator(), // Use the custom email validator
-        ],
-      ],
-      phone: [
-        '',
-        [
-          Validators.required,
-          ValidatorsService.phoneValidator(), // Use the custom phone validator
-        ],
-      ],
+      name: ['', [Validators.required, ValidatorsService.nameValidator()]],
+      email: ['', [Validators.required, ValidatorsService.emailValidator()]],
+      phone: ['', [Validators.required, ValidatorsService.phoneValidator()]],
       dob: ['', Validators.required],
 
       gender: ['', Validators.required],
     });
+    this.maxDate = new Date();
   }
 
   onSubmit() {
     if (this.myForm.valid) {
-      // Handle form submission here
       const userData = this.myForm.value;
       this.userId++;
-      this.myForm.get('id').setValue(this.userId); // Update the ID field in the form
+      this.myForm.get('id').setValue(this.userId);
       console.log(this.myForm.value);
       this.userService.addUser(userData);
       this.myForm.reset();

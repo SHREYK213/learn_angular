@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -8,8 +9,22 @@ import { UserService } from 'src/app/user.service';
 })
 export class UserDetailsComponent {
   users: any[] = [];
+  ngOnInit() {}
+  searchId: number;
 
-  constructor(private userService: UserService) {
+  // Function to navigate to user details by ID
+  searchUser() {
+    if (this.searchId) {
+      this.router.navigate(['/user', this.searchId]);
+    }
+  }
+  constructor(private userService: UserService, private router: Router) {
     this.users = this.userService.getUsers();
+  }
+  navigateToAddUser() {
+    this.router.navigate(['/user/add']);
+  }
+  editUser(userId: number) {
+    this.router.navigate(['/user/edit', userId]);
   }
 }

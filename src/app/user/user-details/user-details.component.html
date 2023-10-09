@@ -1,6 +1,6 @@
-<p>user-details works!</p>
 <h2>User Details</h2>
 <table>
+  <!-- Table to display user data -->
   <thead>
     <tr>
       <th>Name</th>
@@ -8,6 +8,7 @@
       <th>Date of Birth</th>
       <th>Phone</th>
       <th>Gender</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -17,6 +18,23 @@
       <td>{{ user.dob | date }}</td>
       <td>{{ user.phone }}</td>
       <td>{{ user.gender }}</td>
+      <td>
+        <button mat-icon-button class="edit-button" (click)="editUser(user.id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
+<button mat-raised-button color="primary" (click)="navigateToAddUser()">
+  Add User
+</button>
+
+<div>
+  <mat-form-field>
+    <input matInput placeholder="Search by ID" [(ngModel)]="searchId" />
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="searchUser()">
+    Search
+  </button>
+</div>
