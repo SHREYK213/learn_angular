@@ -8,6 +8,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { UserModule } from './user/user.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserDetailsIdComponent } from './user/user-details-id/user-details-id.component';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { UserDetailsIdComponent } from './user/user-details-id/user-details-id.c
     AppRoutingModule,
     UserModule,
     BrowserAnimationsModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
