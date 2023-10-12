@@ -12,23 +12,22 @@ export class ValidatorsService {
       if (!control.value) {
         return null;
       }
-
+  
       const trimmedValue = control.value.trim();
-
+  
       if (!trimmedValue) {
         return { invalidName: true };
       }
-
+  
       const regex = /^[a-zA-Z ]+$/;
       if (!regex.test(trimmedValue)) {
         return { invalidName: true };
       }
-
-      control.setValue(trimmedValue);
-
+  
       return null;
     };
   }
+  
 
   static emailValidator(): ValidatorFn {
     return (control: AbstractControl): { [key: string]: boolean } | null => {

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/user.service';
 
 @Component({
@@ -13,7 +13,8 @@ export class UserDetailsIdComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -24,4 +25,8 @@ export class UserDetailsIdComponent {
       this.user = this.userService.getUserById(this.userId);
     });
   }
+  goBackToUserPage() {
+    this.router.navigate(['/user']);
+  }
 }
+

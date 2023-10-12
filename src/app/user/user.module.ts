@@ -14,12 +14,15 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { CommonModule } from '@angular/common';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatIconModule } from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
     UserFormComponent,
     UserDetailsComponent,
-    UserEditComponent,
+    UserEditComponent,    
     UserDetailsComponent,
   ],
   imports: [
@@ -34,6 +37,8 @@ import { UserEditComponent } from './user-edit/user-edit.component';
     MatSelectModule,
     MatButtonModule,
     MatCardModule,
+    MatTableModule,
+    MatIconModule
   ],
   exports: [UserFormComponent],
 })

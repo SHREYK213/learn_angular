@@ -27,4 +27,6 @@ export class UserDetailsComponent {
   editUser(userId: number) {
     this.router.navigate(['/user/edit', userId]);
   }
+  displayedColumns: string[] = ['name', 'email', 'dob', 'phone', 'gender', 'actions'];
+
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserService } from 'src/app/user.service';
-import { ValidatorsService } from 'src/app/validators.service';
+
 
 @Component({
   selector: 'app-user-edit',
@@ -12,53 +12,49 @@ import { ValidatorsService } from 'src/app/validators.service';
 export class UserEditComponent implements OnInit {
   myForm: FormGroup;
   userId: number;
-  userData: any;
-  maxDate: Date;
+  user: any;
 
   constructor(
     private route: ActivatedRoute,
-    private fb: FormBuilder,
     private userService: UserService,
+    private fb: FormBuilder,
     private router: Router
   ) {
     this.myForm = this.fb.group({
-      id: [''], // Initialize 'id' as an empty string for now
-      name: ['', [Validators.required, ValidatorsService.nameValidator()]],
-      email: ['', [Validators.required, ValidatorsService.emailValidator()]],
-      phone: ['', [Validators.required, ValidatorsService.phoneValidator()]],
-      dob: ['', Validators.required],
-      gender: ['', Validators.required],
+      name: [''],
+      email: [''],
+      dob: [''],
+      phone: [''],
+      gender: [''],
     });
-    this.maxDate = new Date();
   }
 
   ngOnInit() {
-    // Get the 'id' parameter from the route
     this.route.params.subscribe((params) => {
-      this.userId = +params['id']; // Convert 'id' to a number
-      // Fetch user details based on 'userId'
-      this.userData = this.userService.getUserById(this.userId);
-      // Prefill the form controls based on this.userData
-      this.myForm.patchValue({
-        id: this.userData.id, // Update 'id' based on user data if available
-        name: this.userData.name,
-        email: this.userData.email,
-        dob: this.userData.dob,
-        phone: this.userData.phone,
-        gender: this.userData.gender,
-      });
+      this.userId = +params['id'];
+      this.user = this.userService.getUserById(this.userId);
+
+      if (this.user) {
+        this.myForm.patchValue({
+          name: this.user.name,
+          email: this.user.email,
+          dob: this.user.dob,
+          phone: this.user.phone,
+          gender: this.user.gender,
+        });
+      }
     });
   }
 
-  // Implement your form submission logic here
   onSubmit() {
     if (this.myForm.valid) {
-      const userData = this.myForm.value;
-      // Handle user ID generation here, possibly by finding the maximum ID in your user data and adding one
-      const newUserId = this.userService.generateUniqueId();
-      userData.id = newUserId;
-      this.userService.addUser(userData);
-      this.myForm.reset();
+      // Get the updated user data from the form
+      const updatedUserData = this.myForm.value;
+
+      // Update the user details using the UserService
+      this.userService.updateUser(this.userId, updatedUserData);
+
+      // Navigate back to the user details page
       this.router.navigate(['/user']);
     }
   }

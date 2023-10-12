@@ -23,8 +23,11 @@ export class UserService {
     // Find and return the user with the specified ID
     return this.users.find((user) => user.id === id);
   }
-  generateUniqueId(): number {
-    // Generate a unique ID based on the current value of nextId
-    return this.nextId++;
+  updateUser(userId: number, updatedUserData: any): void {
+    const userIndex = this.users.findIndex((user) => user.id === userId);
+
+    if (userIndex !== -1) {
+      this.users[userIndex] = { ...this.users[userIndex], ...updatedUserData };
+    }
   }
 }

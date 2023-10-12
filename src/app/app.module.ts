@@ -9,6 +9,7 @@ import { UserModule } from './user/user.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserDetailsIdComponent } from './user/user-details-id/user-details-id.component';
 import { MatCardModule } from '@angular/material/card';
+import { UserEditComponent } from './user/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
