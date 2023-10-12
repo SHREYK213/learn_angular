@@ -1,0 +1,68 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input matInput placeholder="Name" formControlName="name" required />
+    <mat-error *ngIf="myForm.get('name').hasError('required')"
+      >Name is required</mat-error
+    >
+    <mat-error *ngIf="myForm.get('name').hasError('invalidName')"
+      >Invalid name format</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Email" formControlName="email" required />
+    <mat-error *ngIf="myForm.get('email').hasError('required')"
+      >Email is required</mat-error
+    >
+    <mat-error *ngIf="myForm.get('email').hasError('invalidEmail')"
+      >Invalid email format</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      [matDatepicker]="picker"
+      placeholder="Date of Birth"
+      formControlName="dob"
+      required
+      [max]="maxDate"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="myForm.get('dob').hasError('required')"
+      >Date of Birth is required</mat-error
+    >
+    <mat-error *ngIf="myForm.get('dob').hasError('max')"
+      >Date cannot be in the future</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <input
+      matInput
+      placeholder="Phone Number"
+      formControlName="phone"
+      required
+    />
+    <mat-error *ngIf="myForm.get('phone').hasError('required')"
+      >Phone Number is required</mat-error
+    >
+    <mat-error *ngIf="myForm.get('phone').hasError('invalidPhone')"
+      >Invalid phone format</mat-error
+    >
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Gender</mat-label>
+    <mat-select formControlName="gender" required>
+      <mat-option value="male">Male</mat-option>
+      <mat-option value="female">Female</mat-option>
+    </mat-select>
+    <mat-error *ngIf="myForm.get('gender').hasError('required')"
+      >Gender is required</mat-error
+    >
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Continue</button>
+</form>
