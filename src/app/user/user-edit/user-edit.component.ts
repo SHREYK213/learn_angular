@@ -48,13 +48,10 @@ export class UserEditComponent implements OnInit {
 
   onSubmit() {
     if (this.myForm.valid) {
-      // Get the updated user data from the form
       const updatedUserData = this.myForm.value;
 
-      // Update the user details using the UserService
       this.userService.updateUser(this.userId, updatedUserData);
 
-      // Navigate back to the user details page
       this.router.navigate(['/user']);
     }
   }

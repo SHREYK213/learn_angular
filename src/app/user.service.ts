@@ -20,7 +20,6 @@ export class UserService {
   }
 
   getUserById(id: number): any {
-    // Find and return the user with the specified ID
     return this.users.find((user) => user.id === id);
   }
   updateUser(userId: number, updatedUserData: any): void {
@@ -30,4 +29,9 @@ export class UserService {
       this.users[userIndex] = { ...this.users[userIndex], ...updatedUserData };
     }
   }
+
+  deleteUser(userId: number): void {
+    this.users = this.users.filter((user) => user.id !== userId);
+  }
 }
+

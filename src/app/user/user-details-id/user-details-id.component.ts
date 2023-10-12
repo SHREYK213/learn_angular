@@ -9,7 +9,7 @@ import { UserService } from 'src/app/user.service';
 })
 export class UserDetailsIdComponent {
   userId: number;
-  user: any; // Define the user object to store user details
+  user: any; 
 
   constructor(
     private route: ActivatedRoute,
@@ -18,10 +18,8 @@ export class UserDetailsIdComponent {
   ) {}
 
   ngOnInit() {
-    // Get the 'id' parameter from the route
     this.route.params.subscribe((params) => {
-      this.userId = +params['id']; // Convert 'id' to a number
-      // Fetch user details based on 'userId'
+      this.userId = +params['id']; 
       this.user = this.userService.getUserById(this.userId);
     });
   }

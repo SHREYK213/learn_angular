@@ -1,31 +1,26 @@
-/* form.component.scss */
 
-/* Style the form container */
 :host {
     display: block;
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
-    text-align: left; /* Set text direction to left */
+    text-align: left; 
   }
   
-  /* Style the form fields */
   mat-form-field {
     width: 100%;
     margin-bottom: 20px;
-    text-align: left; /* Set text direction to left */
+    text-align: left; 
   }
   
-  /* Style the gender dropdown */
   mat-select {
     width: 100%;
-    text-align: left; /* Set text direction to left */
+    text-align: left; 
   }
   
-  /* Style the button */
   button {
     width: 100%;
     margin-top: 20px;
-    text-align: left; /* Set text direction to left */
+    text-align: left; 
   }
   

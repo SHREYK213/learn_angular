@@ -11,7 +11,7 @@ import { ValidatorsService } from 'src/app/validators.service';
 })
 export class UserFormComponent implements OnInit {
   myForm: FormGroup;
-  userId: number = 0;
+  userId: number=0;
   maxDate: Date;
 
   constructor(
@@ -38,7 +38,7 @@ export class UserFormComponent implements OnInit {
       const userData = this.myForm.value;
       this.userId++;
       this.myForm.get('id').setValue(this.userId);
-      console.log(this.myForm.value);
+      console.log(userData);
       this.userService.addUser(userData);
       this.myForm.reset();
       this.router.navigate(['/user']);

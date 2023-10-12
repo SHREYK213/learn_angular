@@ -8,7 +8,7 @@ h2 {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  border: 1px solid #ddd; /* Border for the table */
+  border: 1px solid #ddd; 
   th, td {
     padding: 10px;
     text-align: left;
@@ -19,7 +19,6 @@ h2 {
   }
 }
 
-/* Style for the Add User button */
 button {
   margin-top: 20px;
   padding: 10px 20px;
@@ -34,7 +33,6 @@ button {
   }
 }
 
-/* Style for the Edit button within the table */
 button.edit-button {
   background-color: #007bff;
   color: #fff;
@@ -49,7 +47,6 @@ button.edit-button {
     background-color: #0056b3;
   }
 
-  margin-right: 10px; /* Add margin for spacing between buttons */
+  margin-right: 10px; 
 }
 
-/* Add any additional styling as needed */

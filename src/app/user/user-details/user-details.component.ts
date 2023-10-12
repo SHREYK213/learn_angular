@@ -12,7 +12,6 @@ export class UserDetailsComponent {
   ngOnInit() {}
   searchId: number;
 
-  // Function to navigate to user details by ID
   searchUser() {
     if (this.searchId) {
       this.router.navigate(['/user', this.searchId]);
@@ -29,4 +28,9 @@ export class UserDetailsComponent {
   }
   displayedColumns: string[] = ['name', 'email', 'dob', 'phone', 'gender', 'actions'];
 
+  deleteUser(userId: number) {
+    this.userService.deleteUser(userId);
+
+    this.users = this.users.filter((user) => user.id !== userId);
+  }
 }
