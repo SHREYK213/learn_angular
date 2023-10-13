@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/user.service';
+import { ValidatorsService } from 'src/app/validators.service';
+
 
 
 @Component({
@@ -13,6 +15,7 @@ export class UserEditComponent implements OnInit {
   myForm: FormGroup;
   userId: number;
   user: any;
+  maxDate: Date;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,12 +24,14 @@ export class UserEditComponent implements OnInit {
     private router: Router
   ) {
     this.myForm = this.fb.group({
-      name: [''],
-      email: [''],
-      dob: [''],
-      phone: [''],
-      gender: [''],
+      name: ['', [Validators.required, ValidatorsService.nameValidator()]],
+      email: ['', [Validators.required, ValidatorsService.emailValidator()]],
+      phone: ['', [Validators.required, ValidatorsService.phoneValidator()]],
+      dob: ['', Validators.required],
+      gender: ['', Validators.required],
     });
+    this.maxDate = new Date();
+
   }
 
   ngOnInit() {
