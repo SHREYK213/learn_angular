@@ -4,11 +4,16 @@
       <mat-card-title>User Details</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <p><strong>Name:</strong> {{ user.name }}</p>
-      <p><strong>Email:</strong> {{ user.email }}</p>
-      <p><strong>Date of Birth:</strong> {{ user.dob | date }}</p>
-      <p><strong>Phone:</strong> {{ user.phone }}</p>
-      <p><strong>Gender:</strong> {{ user.gender }}</p>
+      <ng-container *ngIf="user">
+        <p><strong>Name:</strong> {{ user.name }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Date of Birth:</strong> {{ user.dob | date }}</p>
+        <p><strong>Phone:</strong> {{ user.phone }}</p>
+        <p><strong>Gender:</strong> {{ user.gender }}</p>
+      </ng-container>
+      <ng-container *ngIf="!user">
+        <p>No user found.</p>
+      </ng-container>
     </mat-card-content>
   </mat-card>
   

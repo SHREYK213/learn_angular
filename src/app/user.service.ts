@@ -4,13 +4,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class UserService {
-  private users: any[] = [];
-  private nextId: number = 1; // Initialize the ID counter
+  public users: any[] = [];
+  public nextId: number = 1; 
 
   constructor() {}
 
   addUser(user: any) {
-    // Assign a unique ID to the user
     user.id = this.nextId++;
     this.users.push(user);
   }
