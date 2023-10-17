@@ -7,7 +7,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
-import {  MatCardModule } from '@angular/material/card'; 
+import { MatCardModule } from '@angular/material/card';
 import { UserFormComponent } from './user-form/user-form.component';
 import { CommonModule } from '@angular/common';
 import { UserDetailsComponent } from './user-details/user-details.component';
@@ -16,12 +16,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 
-
 @NgModule({
   declarations: [
     UserFormComponent,
     UserDetailsComponent,
-    UserEditComponent,    
+    UserEditComponent,
     UserDetailsComponent,
   ],
   imports: [
@@ -39,7 +38,6 @@ import { RouterModule } from '@angular/router';
     MatTableModule,
     MatIconModule,
     RouterModule.forChild([]),
-  
   ],
   exports: [UserFormComponent],
 })
