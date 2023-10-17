@@ -1,30 +1,30 @@
 <h2>Edit User</h2>
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
   <mat-form-field>
-    <input matInput placeholder="Name" formControlName="name" required />
+    <input matInput placeholder="Name" formControlName="name" required autocomplete="off" />
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Email" formControlName="email" required />
+    <input matInput placeholder="Email" formControlName="email" required autocomplete="off" />
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="dob" required [max]="maxDate"/>
+    <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="dob" required autocomplete="off" [max]="maxDate"/>
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Phone Number" formControlName="phone" required />
+    <input matInput placeholder="Phone Number" formControlName="phone" required autocomplete="off" />
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Gender</mat-label>
-    <mat-select formControlName="gender" required>
+    <mat-select formControlName="gender" required autocomplete="off">
       <mat-option value="male">Male</mat-option>
       <mat-option value="female">Female</mat-option>
     </mat-select>
   </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit">Update User</button>
+  <button mat-raised-button color="primary" [disabled]="myForm.invalid" type="submit">Update Details</button>
 </form>

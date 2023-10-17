@@ -1,6 +1,6 @@
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
   <mat-form-field>
-    <input matInput placeholder="Name" formControlName="name" required />
+    <input matInput placeholder="Name" formControlName="name" required autocomplete="off" />
     <mat-error *ngIf="myForm.get('name').hasError('required')"
       >Name is required</mat-error
     >
@@ -10,7 +10,7 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Email" formControlName="email" required />
+    <input matInput placeholder="Email" formControlName="email" required autocomplete="off"/>
     <mat-error *ngIf="myForm.get('email').hasError('required')"
       >Email is required</mat-error
     >
@@ -27,6 +27,7 @@
       formControlName="dob"
       required
       [max]="maxDate"
+      autocomplete="off"
     />
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
@@ -44,6 +45,7 @@
       placeholder="Phone Number"
       formControlName="phone"
       required
+      autocomplete="off"
     />
     <mat-error *ngIf="myForm.get('phone').hasError('required')"
       >Phone Number is required</mat-error
@@ -64,5 +66,5 @@
     >
   </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit">Continue</button>
+  <button mat-raised-button color="primary" [disabled]="myForm.invalid" type="submit">Submit Details</button>
 </form>
