@@ -24,9 +24,16 @@ export class ValidatorsService {
         return { invalidName: true };
       }
   
+      const capitalizedValue = trimmedValue.charAt(0).toUpperCase() + trimmedValue.slice(1);
+  
+      if (capitalizedValue !== control.value) {
+        control.patchValue(capitalizedValue);
+      }
+  
       return null;
     };
   }
+  
   
 
   static emailValidator(): ValidatorFn {

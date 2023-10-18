@@ -1,10 +1,12 @@
 <h2>User Details</h2>
 
 <div *ngIf="users && users.length > 0">
-  <mat-form-field>
-    <input matInput placeholder="Search by ID" [(ngModel)]="searchId" autocomplete="off"/>
+  <mat-form-field class="search-box">
+    <input matInput  [(ngModel)]="searchId" autocomplete="off"/>
+    <mat-label>Search</mat-label>
+
   </mat-form-field>
-  <button mat-raised-button color="primary" (click)="searchUser()">Search</button>
+  <button mat-raised-button color="primary" class="search-btn" (click)="searchUser()">Search</button>
 </div>
 
 <button mat-raised-button color="primary" (click)="navigateToAddUser()">Add User</button>

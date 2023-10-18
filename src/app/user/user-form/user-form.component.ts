@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from '@src/app/services/userServices/user.service';
 import { ValidatorsService } from '@src/app/services/validatorServices/validators.service';
 
+
 @Component({
   selector: 'app-user-form',
   templateUrl: './user-form.component.html',
@@ -44,4 +45,20 @@ export class UserFormComponent implements OnInit {
       this.router.navigate(['/user']);
     }
   }
+  resetForm() {
+    this.myForm.reset();
+  }
+  isFormEmpty() {
+    const formControls = this.myForm.controls;
+    for (const controlName in formControls) {
+      if (formControls.hasOwnProperty(controlName)) {
+        const control = formControls[controlName];
+        if (!control.pristine || control.value) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
 }

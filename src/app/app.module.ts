@@ -16,7 +16,7 @@ import { UserRoutingModule } from './user/user-routing.module';
     AppComponent,
     TableComponent,
     HeaderComponent,
-    UserDetailsIdComponent,
+    UserDetailsIdComponent,    
   ],
   imports: [
     BrowserModule,

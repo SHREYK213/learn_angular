@@ -15,6 +15,9 @@ import { UserEditComponent } from './user-edit/user-edit.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
+import { AlphabeticOnlyDirective } from '../Directives/alphabetic-only.directive';
+import { NumericOnlyDirective } from '../Directives/numeric-only.directive';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +25,9 @@ import { RouterModule } from '@angular/router';
     UserDetailsComponent,
     UserEditComponent,
     UserDetailsComponent,
+    AlphabeticOnlyDirective,
+NumericOnlyDirective
+
   ],
   imports: [
     CommonModule,
@@ -39,6 +45,6 @@ import { RouterModule } from '@angular/router';
     MatIconModule,
     RouterModule.forChild([]),
   ],
-  exports: [UserFormComponent],
+  exports: [],
 })
 export class UserModule {}
