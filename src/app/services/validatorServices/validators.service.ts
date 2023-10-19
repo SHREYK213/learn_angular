@@ -11,14 +11,19 @@ export class ValidatorsService {
     return (control: AbstractControl): { [key: string]: boolean } | null => {
       if (!control.value) {
         return null;
+      }  
+  
+      let trimmedValue = control.value.trim();
+  
+      if (trimmedValue.length > 25) {
+        trimmedValue = trimmedValue.substring(0, 25);
+        control.setValue(trimmedValue);
       }
-  
-      const trimmedValue = control.value.trim();
-  
+
       if (!trimmedValue) {
         return { invalidName: true };
       }
-  
+
       const regex = /^[a-zA-Z ]+$/;
       if (!regex.test(trimmedValue)) {
         return { invalidName: true };
